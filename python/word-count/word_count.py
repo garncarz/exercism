@@ -1,12 +1,10 @@
+from collections import defaultdict
 import re
 
 
 def word_count(sentence):
-    count = {}
+    count = defaultdict(lambda: 0)
     for word in re.findall(r'(\w+)', sentence.replace('_', ' ')):
         word = word.lower()
-        if word not in count:
-            count[word] = 1
-        else:
-            count[word] += 1
+        count[word] += 1
     return count
